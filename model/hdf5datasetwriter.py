@@ -10,7 +10,7 @@ class HDF5DatasetWriter:
         self.db = h5py.File(outputPath, "w")
         self.data1 = self.db.create_dataset("images1", dims, dtype="float")
         self.data2 = self.db.create_dataset("images2", dims, dtype="float")
-        self.labels = self.db.create_dataset("labels", (dims[0],), dtype="float")
+        self.labels = self.db.create_dataset("labels", (dims[0],3), dtype="float")
 
         self.bufSize = bufSize
         self.buffer = {"data1": [], "data2": [], "labels": []}
