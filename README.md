@@ -46,14 +46,36 @@ The directory and file structure of the drive is as follows:
                  |-> test.hdf5
                  |-> paht2.hdf5
 |----> lists
-         |--> train.csv 
-         |--> val.csv 
-         |--> test.csv
-         |--> path2.csv
+         |-> train.csv 
+         |-> val.csv 
+         |-> test.csv
+         |-> path2.csv
 |----> model
-         |--> __init__.py
-         |--> hdf5datasetgenerator.py
-         |--> siamese_network.py
-         |--> trainingMonitor.py      
+         |-> __init__.py
+         |-> hdf5datasetgenerator.py
+         |-> siamese_network.py
+         |-> trainingMonitor.py      
+```
+
+Once the .hdf5 files containing the data are fairly large (more than 30GB), the easier way to use the code is if you have a Google Colab Pro account. If this is the case, it is enough to mount your Google Drive in your Colab session, and execute the code using the Colab session terminal. If you don't have a Colab Pro account, it is necessary to download the data.
+
+
+To train the network from scratch, use the following command:
+```
+python train_network_v2.py
+```
+Checkpoints of your model will be saved at the `checkpoints` folder, and at the end of every epoch a plot of the training and validation losses will be save at the `plots` folder.
+
+
+To evaluate the best checkpoint saved, use the following command:
+```
+python evaluate_model.py
+```
+This script will currently evaluate the model `model_checkpoint_train2_part2`, which was the best model I found during training.
+
+
+Additionally, the script `testing_trajectory_error.py` is used to test the trained model on a trajectory generated in order to evaluate the accumulated error during flight. This script will generate a .csv file with the predicted displacement at every pair of images, the true displacement, and the corresponding error. To run this script, simply use the command:
+```
+python testing_trajectory_error.py
 ```
 
