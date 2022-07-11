@@ -74,7 +74,7 @@ python evaluate_model.py
 This script will currently evaluate the model checkpoint named `model_checkpoint_train2_part2`, which was the best model I found during training. To evaluate another checkpoint, it is necessary to change the global variable MODEL_PATH in the script.
 
 
-Additionally, the script `testing_trajectory_error.py` is used to test the trained model on a trajectory generated in order to evaluate the accumulated error during flight. This script will generate a .csv file with the predicted displacement at every pair of images, the true displacement, and the corresponding error. To run this script, simply use the command:
+Additionally, the script `testing_trajectory_error.py` is used to test the trained model on a trajectory generated in order to evaluate the accumulated error during flight. This script will generate a .csv file with the predicted displacement at every pair of images, the true displacement, and the corresponding error, as well as printing some error metrics to the console. To run this script, simply use the command:
 ```
 python testing_trajectory_error.py
 ```
